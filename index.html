@@ -32,28 +32,48 @@
         scroll-behavior: smooth;
        }
 
+       .hamburger span:nth-child(2){
+        transform-origin: 0 0;
+       }
+
+       .hamburger span:nth-child(4){
+        transform-origin: 0 100%;
+       }
+
+       .hamburger input:checked ~ span:nth-child(2){
+        transform: rotate(45deg) translate(-1px, 1px);
+       }
+
+       .hamburger input:checked ~ span:nth-child(3){
+        transform: scale(0);
+       }
+
+       .hamburger input:checked ~ span:nth-child(4){
+        transform: rotate(-45deg) translate(0px, -3px);
+       }
+
        .slide{
-        display: flex;
+        transform: scale(1);
        }
     </style>
 </head>
 
 <body class="font-bai bg-main-bg overflow-x-hidden">
     <!-- Navbar -->
-    <nav class="sticky lg:static top-0 bg-[#F1F3FF] px-4 py-6 flex justify-between items-center lg:px-[136px]">
+    <nav class="sticky lg:static top-0 bg-[#F1F3FF] px-4 py-6 flex justify-between items-center md:px-20 lg:px-[136px] z-50">
         <div class="flex items-center">
             <img src="assets/logo.png" class="w-8" alt="">
-            <h1 class="font-bold ml-1">ADAM</h1>
+            <h1 class="font-bol ml-1">ADAM</h1>
         </div>
 
-        <div class="flex flex-col justify-evenly h-6 relative z-[100] lg:hidden">
-            <input type="checkbox" name="" id="" class="toggle absolute w-7 h-5 opacity-0 cursor-pointer">
-            <span class="w-[18px] h-[3px] bg-black rounded-[3px]"></span>
-            <span class="w-[18px] h-[3px] bg-black rounded-[3px]"></span>                    
-            <span class="w-[18px] h-[3px] bg-black rounded-[3px]"></span>                
+        <div class="hamburger flex flex-col justify-evenly h-6 relative lg:hidden z-10">
+            <input type="checkbox" name="" id="" class="toggle absolute right-[0.5px] w-7 h-5 opacity-0 z-10 cursor-pointer">
+            <span class="w-[18px] h-[3px] bg-black rounded-[3px] transition"></span>
+            <span class="w-[18px] h-[3px] bg-black rounded-[3px] transition"></span>                    
+            <span class="w-[18px] h-[3px] bg-black rounded-[3px] transition"></span>                
         </div>
 
-        <div class="menu hidden absolute right-0 top-0 w-[45%] md:w-[30%] lg:w-max h-screen flex flex-col gap-4 px-4 bg-white text-black transition duration-200 lg:translate-x-0 lg:flex lg:flex-row lg:items-center lg:h-fit lg:static lg:gap-8  lg:bg-transparent">
+        <div class="menu scale-0 lg:scale-100 absolute right-0 top-0 w-[45%] md:w-[30%] lg:w-max h-screen flex flex-col gap-4 px-4 bg-white text-black transition lg:translate-x-0 lg:flex-row lg:items-center lg:h-fit lg:static lg:gap-8 lg:bg-transparent">
             <h1 class="lg:hidden absolute top-8 font-bold">BCR</h1>
             <a href="#service" class="mt-24 lg:mt-0 text-sm font-medium hover:text-secondary-color active:scale-90  transition">Our
                 Services</a>
@@ -87,7 +107,7 @@
     <!-- Hero Section End -->
 
     <!-- Service Section Start -->
-    <section id="service" class="mx-4 mt-[61px] lg:mx-[136px] lg:mt-[100px]">
+    <section id="service" class="mx-4 mt-[61px] md:mx-20 lg:mx-[136px] lg:mt-[100px]">
         <div class="md:grid md:grid-cols-2 gap-4 items-center">
             <img src="assets/service.svg" class=" mx-auto md:w-[90%]" alt="">
 
@@ -129,7 +149,7 @@
     <!-- Service Section End -->
 
     <!-- Why Us Section Start -->
-    <section id="why" class="mx-4 mt-[62px] lg:mx-[136px] lg:mt-[100px]">
+    <section id="why" class="mx-4 mt-[62px] md:mx-20 lg:mx-[136px] lg:mt-[100px]">
         <div class="text-center lg:text-left">
             <h1 class=" text-2xl font-bold leading-9">Why Us?</h1>
             <p class="mt-4 text-sm font-light leading-5 ">Mengapa harus pilih Binar Car Rental?</p>
@@ -170,13 +190,13 @@
     <!-- Why Us Section End -->
 
     <!-- Testimonial Section Start -->
-    <section id="testi" class="mx-4 mt-[60px] lg:mx-[136px]">
+    <section id="testi" class="mx-4 mt-[60px] md:mx-20 lg:mx-[136px]">
         <h1 class="text-center text-2xl font-bold leading-9">Testimonial</h1>
         <p class="mt-4 text-center text-sm">Berbagai review positif dari para pelanggan kami</p>
         
         <div id="controls-carousel" class="relative mt-4 lg:mt-10" data-carousel="static">
             <!-- Carousel wrapper -->
-            <div class="relative h-[372px] overflow-hidden rounded-lg md:h-96 z-10 shadow-lg">
+            <div class="relative h-[372px] overflow-hidden rounded-lg md:h-96 shadow-lg">
                 <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <div class="bg-[#F1F3FF] flex flex-col lg:flex-row items-center h-full px-8 lg:px-24 py-10 lg:gap-10 rounded-lg">
@@ -223,10 +243,10 @@
             <!-- Slider controls -->
             <div class="flex justify-center gap-6 mt-4">
                 <button type="button"
-                    class="flex items-center justify-center h-full cursor-pointer group focus:outline-none"
+                    class="flex items-center justify-center h-full cursor-pointer transition active:scale-90"
                     data-carousel-prev>
                     <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-[#C4C4C4] group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-[#C4C4C4] group-focus:ring-4 group-focus:ring-white">
                         <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -236,10 +256,10 @@
                 </button>
     
                 <button type="button"
-                    class="flex items-center justify-center h-full cursor-pointer group focus:outline-none"
+                    class="flex items-center justify-center h-full cursor-pointer transition active:scale-90"
                     data-carousel-next>
                     <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary-color dark:bg-gray-800/30 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary-color dark:bg-gray-800/30 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
                         <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -272,7 +292,7 @@
     <!-- Testimonial Section End -->
 
     <!-- FAQ Section Start -->
-    <section id="faq" class="mx-4 lg:mx-[136px] mt-[60px] lg:grid lg:grid-cols-2 gap-[132px]">
+    <section id="faq" class="mx-4 md:mx-20 lg:mx-[136px] mt-[60px] lg:grid lg:grid-cols-2 gap-[132px]">
         <div class="text-center lg:text-left">
             <h1 class="text-2xl font-bold leading-9">Frequently Asked Question</h1>
             <p class="text-sm font-light">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -314,14 +334,14 @@
 
     <!-- Footer Start -->
     <footer id="footer"
-        class="mx-4 mb-[60px] lg:mb-[100px] lg:mx-[136px] mt-[60px] lg:mt-[150px] gap-4 lg:flex lg:gap-[70px] lg:justify-between">
+        class="mx-4 mb-[60px] lg:mb-[100px] md:mx-20 md:grid md:grid-cols-2 lg:mx-[136px] mt-[60px] lg:mt-[150px] gap-4 lg:flex lg:gap-[70px] lg:justify-between">
         <div class="flex flex-col gap-4">
             <p class="text-base lg:text-sm font-normal">Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
             <p class="text-base lg:text-sm font-normal">binarcarrental@gmail.com</p>
             <p class="text-base lg:text-sm font-normal">081-233-334-808</p>
         </div>
 
-        <div class="flex flex-col gap-4 my-4 lg:my-0">
+        <div class="flex flex-col gap-4 my-4 md:my-0 lg:my-0">
             <a href="#service" class="w-fit text-base font-medium active:scale-90 transition">Our Service</a>
             <a href="#why" class="w-fit text-base font-medium active:scale-90 transition">Why Us</a>
             <a href="#testi" class="w-fit text-base font-medium active:scale-90 transition">Testimonial</a>
