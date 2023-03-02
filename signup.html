@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend:{
+                    colors:{
+                    'main-bg': '#F1F3FF',
+                   },
+                    fontFamily:{
+                        bai:['Bai Jamjuree']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+       /* Syntax CSS Here */
+    </style>
+</head>
+<body class="font-bai">
+    <section class="mx-4 my-[29px] md:w-1/2 md:mx-auto lg:w-5/12">
+        <!-- Top -->
+        <div class="flex justify-between">
+            <div class="flex items-center">
+                <img src="assets/logo.png" class="w-8" alt="">
+                <h1 class="font-bold">ADAM</h1>
+            </div>
+
+            <img class="w-6" src="assets/close.svg" alt="">
+        </div>
+        <!-- Top End -->
+
+        <!-- Form -->
+        <h1 class="mt-8 text-2xl leading-9 font-bold">Sign Up</h1>
+        <form action="" class="mt-8">
+            <label for="nama">Nama<span class="text-red-600">*</span></label>
+            <input type="text" name="" id="nama" placeholder="Full Name" autocomplete="off" class="block mb-4 w-full mt-[5px] border py-[10px] px-[15px] rounded-[5px] outline-none focus:shadow-lg transition duration-200 placeholder:text-xs placeholder:font-light placeholder:transition placeholder:duration-500 focus:placeholder:-translate-x-48 focus:border-[#0D28A6]">
+            
+            <label for="email">Email<span class="text-red-600">*</span></label>
+            <input type="email" name="" id="email" placeholder="Contoh: johndee@gmail.com" autocomplete="off" class="mb-4 block w-full mt-[5px] border py-[10px] px-[15px] rounded-[5px] outline-none focus:shadow-lg transition duration-200 placeholder:text-xs placeholder:font-light placeholder:transition placeholder:duration-500 focus:placeholder:-translate-x-48 focus:border-[#0D28A6] invalid:focus:border-red-600">
+
+            <label for="cpassword">Create Password<span class="text-red-600">*</span></label>
+            <input type="password" name="" id="cpassword" placeholder="6+ Karakter" autocomplete="off" class="block w-full mt-[5px] border py-[10px] px-[15px] rounded-[5px] outline-none focus:shadow-lg transition duration-200 placeholder:text-xs placeholder:font-light placeholder:transition placeholder:duration-500 focus:placeholder:-translate-x-48 focus:border-[#0D28A6]">
+
+            <button type="button" onclick="window.location.href='signin.html';" class="mt-8 bg-[#0D28A6] text-white font-semibold py-2 px-3 w-full rounded-sm active:scale-90 transition duration-200">Sign Up</button>
+        </form>
+
+        <div class="flex justify-center items-center mt-8">
+            <p class="mr-2 text-sm font-medium ">Already have an account?</p>
+            <a href="signin.html" class="text-[#0D28A6] font-semibold underline">Sign In here</a>
+        </div>
+        <!-- Form End -->
+    </section>
+</body>
+</html>
